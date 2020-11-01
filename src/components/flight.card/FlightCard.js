@@ -1,10 +1,10 @@
 import "./flight_card.css";
 
 export function FlightCard({ flight }) {
-    const { links, mission_name, flight_number, mission_id, launch_year, launch_success, rocket: { first_stage: { cores = []} = {} } = {} } = flight;
+    const { links, mission_name, flight_number, mission_id, launch_year, launch_success, rocket: { first_stage: { cores = [] } = {} } = {} } = flight;
 
     return <div className="flight_card">
-        <div className="image"><img src={links.mission_patch_small} alt={mission_name}/></div>
+        <div className="image"><img src={links.mission_patch_small} alt={mission_name} /></div>
         <div className="mission_name">{mission_name}#{flight_number}</div>
         {mission_id && !!mission_id.length && <div className="element">
             <label>Mission Ids: </label>

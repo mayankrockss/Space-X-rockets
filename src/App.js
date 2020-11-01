@@ -1,19 +1,23 @@
-import { Fragment, useCallback, useEffect } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import actionTypes from "./helpers/actionTypes";
 import { FlightCard } from './components/flight.card/FlightCard';
 import axios from "axios";
 import Filters from './components/filters/Filters';
 import { useReducedState } from './helpers/useReducedState';
+import Loader from './assets/loader.gif';
 import './App.css';
 
 function App() {
   const [state, dispatch] = useReducedState();
+  const [loading, setLoading] = useState(false);
   const { flights = [], yearFilter, launchFilter, landingFilter } = state;
 
   const callSpaceXApi = useCallback(async (yearFilter, launchFilter, landingFilter) => {
     try {
+      setLoading(true);
       const { data } = await axios(`https://api.spacexdata.com/v3/launches?limit=100${launchFilter ? "&launch_success=" + launchFilter : ""}${landingFilter ? "&land_success=" + landingFilter : ""}${yearFilter ? "&launch_year=" + yearFilter : ""}`);
       dispatch({ type: actionTypes.UPDATE_FLIGHTS, data });
+      setLoading(false);
     }
     catch (err) {
       alert("error occured- " + err.message)
@@ -68,9 +72,9 @@ function App() {
         <div className="filter-constainer" onClick={handleFilterClick}>
           <Filters yearFilter={yearFilter} launchFilter={launchFilter} landingFilter={landingFilter} />
         </div>
-        <div className="cards">
+        {loading ? <div className="loader"><img src={Loader} alt="loading" /></div> : <div className="cards">
           {flights.map(flight => <FlightCard flight={flight} key={flight.flight_number} />)}
-        </div>
+        </div>}
       </div>
     </Fragment>
   );
