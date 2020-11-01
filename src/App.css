@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+:root {
+  background: rgb(211, 210, 210);
+}
 .title {
   color:#333;
   text-align: center;
@@ -37,6 +40,7 @@
   .filters{
     position: fixed;
     margin: 10px;
+    margin-top: 25px;
   }
 }
 
@@ -49,11 +53,12 @@
     margin: auto;
   }
   .cards{
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     flex:1;
   }
    .filters{
     position: fixed;
     margin: 10px;
+    margin-top: 25px;
   }
 }

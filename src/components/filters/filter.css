@@ -1,14 +1,15 @@
 .filter-button {
-    background: #afd275;
+    background: #696969;
     border: none;
-    padding: 3px;
+    padding: 5px;
     box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25), -3px -3px 6px 0 rgba(255, 255, 255, 0.3);
     border-radius: 5px;
     outline: none;
     transition: all 100ms ease;
+    color: rgb(245, 243, 243);
 }
 .active {
-    background: green;
+    background: rgb(65, 65, 65);
     color:whitesmoke
 }
 
@@ -17,19 +18,23 @@ h4 {
     margin-bottom: 5px;
 }
 .filter-button:active {
-    background: #afd275;;
+    background: #696969;
     box-shadow: 2px 2px 1px 0 rgba(0, 0, 0, 0.25), -1px -1px 3px 0 rgba(255, 255, 255, 0.3);
 
 }
 .filters, .filter-constainer{
-    height: 410px;
+    height: 450px;
     width: 200px;
-    background: #afd275;
+    background: #696969;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: space-evenly;
     justify-content: center;
+    color: rgb(245, 243, 243);
+  }
+  .filters {
+    box-shadow: 5px 5px 7px rgb(53, 53, 53)
   }
   .filter-constainer {
     background: none;
