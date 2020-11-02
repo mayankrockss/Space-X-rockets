@@ -28,5 +28,5 @@ export function useReducedState() {
         launchFilter: null,
         landingFilter: null
     }
-    return useReducer(reducer, initialState, state => state, 1234);
+    return useReducer(reducer, initialState, undefined, 'Current_State');
 }

@@ -67,7 +67,7 @@ function App() {
 
   return (
     <Fragment>
-      <h1 className="title">Space-X Rockets</h1>
+      <h1 className="title">Space-X Launch Programs</h1>
       <div className="app">
         <div className="filter-constainer" onClick={handleFilterClick}>
           <Filters yearFilter={yearFilter} launchFilter={launchFilter} landingFilter={landingFilter} />
@@ -76,6 +76,7 @@ function App() {
           {flights.map(flight => <FlightCard flight={flight} key={flight.flight_number} />)}
         </div>}
       </div>
+      <div className="footer"> Developed by: Mayank Singh</div>
     </Fragment>
   );
 }
